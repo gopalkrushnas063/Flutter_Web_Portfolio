@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/core/presentation/extensions/build_context_extension.dart';
-import 'package:portfolio/core/presentation/extensions/responsive_extension.dart';
-import 'package:portfolio/features/home/data/model/home_contact_response_model.dart';
+import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/responsive_extension.dart';
+import 'package:myportfolio/features/home/data/model/home_contact_response_model.dart';
 
 import '../../../../core/presentation/constant/gap_constant.dart';
 import '../../../../core/presentation/util/launch_util.dart';

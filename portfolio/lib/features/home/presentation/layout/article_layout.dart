@@ -1,13 +1,13 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/presentation/constant/gap_constant.dart';
-import 'package:portfolio/core/presentation/extensions/build_context_extension.dart';
-import 'package:portfolio/core/presentation/util/launch_util.dart';
-import 'package:portfolio/core/presentation/widget/image_loader.dart';
-import 'package:portfolio/features/home/data/model/home_article_item_response_model.dart';
-import 'package:portfolio/features/home/data/model/home_article_response_model.dart';
-import 'package:portfolio/features/home/presentation/widget/chip_widget.dart';
-import 'package:portfolio/features/home/presentation/widget/home_background.dart';
+import 'package:myportfolio/core/presentation/constant/gap_constant.dart';
+import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
+import 'package:myportfolio/core/presentation/util/launch_util.dart';
+import 'package:myportfolio/core/presentation/widget/image_loader.dart';
+import 'package:myportfolio/features/home/data/model/home_article_item_response_model.dart';
+import 'package:myportfolio/features/home/data/model/home_article_response_model.dart';
+import 'package:myportfolio/features/home/presentation/widget/chip_widget.dart';
+import 'package:myportfolio/features/home/presentation/widget/home_background.dart';
 
 class ArticleLayout extends StatelessWidget {
   final HomeArticleResponseModel article;

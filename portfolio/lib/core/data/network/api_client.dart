@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:dio_http_formatter/dio_http_formatter.dart';
 import 'package:flutter/foundation.dart';
-import 'package:portfolio/core/data/util/data_source_util.dart';
-import 'package:portfolio/core/data/util/isolate_parser.dart';
+import 'package:myportfolio/core/data/util/data_source_util.dart';
+import 'package:myportfolio/core/data/util/isolate_parser.dart';
 
 typedef ResponseConverter<T> = T Function(dynamic response);
 

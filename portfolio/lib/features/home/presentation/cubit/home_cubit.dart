@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:portfolio/core/domain/usecase.dart';
-import 'package:portfolio/features/home/data/model/home_response_model.dart';
+import 'package:myportfolio/core/domain/usecase.dart';
+import 'package:myportfolio/features/home/data/model/home_response_model.dart';
 
 import '../../domain/usecase/get_home_data_use_case.dart';
 

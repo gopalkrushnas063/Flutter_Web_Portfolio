@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/presentation/extensions/responsive_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/responsive_extension.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../core/presentation/constant/size_constant.dart';

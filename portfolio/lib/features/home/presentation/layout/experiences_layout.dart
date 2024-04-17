@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/presentation/extensions/build_context_extension.dart';
-import 'package:portfolio/core/presentation/extensions/date_extension.dart';
-import 'package:portfolio/features/home/data/model/home_experiences_item_response_model.dart';
-import 'package:portfolio/features/home/data/model/home_experiences_response_model.dart';
+import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/date_extension.dart';
+import 'package:myportfolio/features/home/data/model/home_experiences_item_response_model.dart';
+import 'package:myportfolio/features/home/data/model/home_experiences_response_model.dart';
 
 import '../../../../core/presentation/constant/gap_constant.dart';
 import '../../../../core/presentation/widget/image_loader.dart';
@@ -120,6 +120,7 @@ class _ExperienceItem extends StatelessWidget {
           Text(
             item.description,
             style: context.bodyMedium,
+            textAlign: TextAlign.justify,
           ),
         ],
       ),

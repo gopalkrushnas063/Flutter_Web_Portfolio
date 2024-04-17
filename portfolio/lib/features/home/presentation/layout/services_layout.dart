@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/core/presentation/constant/gap_constant.dart';
-import 'package:portfolio/core/presentation/extensions/build_context_extension.dart';
-import 'package:portfolio/core/presentation/extensions/responsive_extension.dart';
-import 'package:portfolio/features/home/data/model/home_services_item_response_model.dart';
-import 'package:portfolio/features/home/data/model/home_services_response_model.dart';
+import 'package:myportfolio/core/presentation/constant/gap_constant.dart';
+import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/responsive_extension.dart';
+import 'package:myportfolio/features/home/data/model/home_services_item_response_model.dart';
+import 'package:myportfolio/features/home/data/model/home_services_response_model.dart';
 
 import '../widget/chip_widget.dart';
 import '../widget/home_background.dart';

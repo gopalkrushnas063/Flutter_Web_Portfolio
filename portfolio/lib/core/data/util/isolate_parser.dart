@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:portfolio/core/data/network/api_client.dart';
+import 'package:myportfolio/core/data/network/api_client.dart';
 
 class IsolateParser<T> {
   final Map<String, dynamic> json;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/presentation/extensions/build_context_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
 
 class ChipWidget extends StatelessWidget {
   final String text;

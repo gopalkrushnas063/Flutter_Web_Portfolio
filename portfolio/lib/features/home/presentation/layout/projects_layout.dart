@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/presentation/extensions/build_context_extension.dart';
-import 'package:portfolio/core/presentation/extensions/responsive_extension.dart';
-import 'package:portfolio/core/presentation/util/launch_util.dart';
-import 'package:portfolio/features/home/data/model/home_projects_item_response_model.dart';
-import 'package:portfolio/features/home/data/model/home_projects_response_model.dart';
+import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/responsive_extension.dart';
+import 'package:myportfolio/core/presentation/util/launch_util.dart';
+import 'package:myportfolio/features/home/data/model/home_projects_item_response_model.dart';
+import 'package:myportfolio/features/home/data/model/home_projects_response_model.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../core/presentation/constant/gap_constant.dart';
@@ -155,6 +155,7 @@ class _ProjectItem extends StatelessWidget {
           Text(
             item.description,
             style: context.bodyMedium,
+            textAlign: TextAlign.justify,
           ),
           GapConstant.h32,
           _technologies(),

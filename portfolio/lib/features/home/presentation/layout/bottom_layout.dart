@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:portfolio/core/presentation/util/launch_util.dart';
-import 'package:portfolio/features/home/data/model/home_bottom_response_model.dart';
+import 'package:myportfolio/core/presentation/util/launch_util.dart';
+import 'package:myportfolio/features/home/data/model/home_bottom_response_model.dart';
 
 class BottomLayout extends StatelessWidget {
   final HomeBottomResponseModel bottom;

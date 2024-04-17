@@ -2,12 +2,12 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/config/di/injection.dart';
-import 'package:portfolio/core/presentation/constant/gap_constant.dart';
-import 'package:portfolio/core/presentation/extensions/build_context_extension.dart';
-import 'package:portfolio/core/presentation/extensions/responsive_extension.dart';
-import 'package:portfolio/features/home/presentation/layout/article_layout.dart';
-import 'package:portfolio/features/home/presentation/layout/experiences_layout.dart';
+import 'package:myportfolio/config/di/injection.dart';
+import 'package:myportfolio/core/presentation/constant/gap_constant.dart';
+import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/responsive_extension.dart';
+import 'package:myportfolio/features/home/presentation/layout/article_layout.dart';
+import 'package:myportfolio/features/home/presentation/layout/experiences_layout.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
