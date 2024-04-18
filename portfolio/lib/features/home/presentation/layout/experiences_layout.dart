@@ -1,8 +1,11 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:myportfolio/core/presentation/extensions/build_context_extension.dart';
 import 'package:myportfolio/core/presentation/extensions/date_extension.dart';
+import 'package:myportfolio/core/presentation/extensions/responsive_extension.dart';
 import 'package:myportfolio/features/home/data/model/home_experiences_item_response_model.dart';
 import 'package:myportfolio/features/home/data/model/home_experiences_response_model.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../core/presentation/constant/gap_constant.dart';
 import '../../../../core/presentation/widget/image_loader.dart';
@@ -20,7 +23,6 @@ class ExperiencesLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HomeBackground(
-      isGrey: true,
       child: Column(
         children: [
           const ChipWidget(
@@ -30,20 +32,22 @@ class ExperiencesLayout extends StatelessWidget {
           Text(
             experiences.text,
             style: context.bodyLarge,
+            textAlign: TextAlign.center,
           ),
-          GapConstant.h24,
-          _listExperience(),
+          GapConstant.h16,
+          _listExperiences(context),
         ],
       ),
     );
   }
 
-  Widget _listExperience() {
+  Widget _listExperiences(BuildContext context) {
     return Column(
       children: experiences.items
-          .map(
-            (e) => _ExperienceItem(
+          .mapIndexed(
+            (i, e) => _ExperienceItem(
               item: e,
+              isEven: i % 2 == 0,
             ),
           )
           .toList(),
@@ -53,90 +57,119 @@ class ExperiencesLayout extends StatelessWidget {
 
 class _ExperienceItem extends StatelessWidget {
   final HomeExperiencesItemResponseModel item;
+  final bool isEven;
 
   const _ExperienceItem({
     required this.item,
+    required this.isEven,
   });
 
   @override
   Widget build(BuildContext context) {
+    var isRow = context.isDisplayLargeThanTablet;
+
     return Container(
-      padding: const EdgeInsets.all(40),
-      margin: const EdgeInsets.only(
-        top: 24,
-        right: 100,
-        left: 100,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Theme.of(context).colorScheme.background,
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 16,
-            color: context.isDarkMode
-                ? Colors.grey.shade800
-                : Colors.grey.shade200,
-          ),
-        ],
-        shape: BoxShape.rectangle,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      margin: const EdgeInsets.only(top: 32),
+      decoration: context.radiusBorderDecoration,
+      child: ResponsiveRowColumn(
+        rowCrossAxisAlignment: CrossAxisAlignment.start,
+        layout: isRow ? ResponsiveRowColumnType.ROW : ResponsiveRowColumnType.COLUMN,
         children: [
-          _logoLayout(),
-          _titleDescriptionLayout(context),
-          _dateLayout(),
+          ResponsiveRowColumnItem(
+            rowFlex: 1,
+            rowOrder: isEven ? 1 : 2,
+            child: _logoLayout(context, !isRow),
+          ),
+          ResponsiveRowColumnItem(
+            rowFlex: 1,
+            rowOrder: !isEven ? 1 : 2,
+            child: _textAndDateLayout(context),
+          ),
         ],
       ),
     );
   }
 
-  Widget _logoLayout() {
-    return Expanded(
-      flex: 2,
-      child: Align(
-        alignment: Alignment.topLeft,
+  Widget _logoLayout(BuildContext context, bool isColumn) {
+    const radius = Radius.circular(12);
+    const radiusZero = Radius.zero;
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: isColumn
+              ? radius
+              : isEven
+                  ? radius
+                  : radiusZero,
+          bottomLeft: isColumn
+              ? radiusZero
+              : isEven
+                  ? radius
+                  : radiusZero,
+          topRight: isColumn
+              ? radius
+              : !isEven
+                  ? radius
+                  : radiusZero,
+          bottomRight: isColumn
+              ? radiusZero
+              : !isEven
+                  ? radius
+                  : radiusZero,
+        ),
+        color: context.colorScheme.onInverseSurface,
+      ),
+      padding: const EdgeInsets.all(32),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: !isColumn ? 400 : 340,
+          minWidth: context.screenWidth,
+        ),
         child: ImageLoader(
           item.logo,
-          height: 68,
+          height: context.isDisplayLargeThanTablet ? null : 68,
         ),
       ),
     );
   }
 
-  Widget _titleDescriptionLayout(BuildContext context) {
-    return Expanded(
-      flex: 5,
+  Widget _textAndDateLayout(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(48),
       child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             item.title,
-            style: context.bodyLarge?.copyWith(
+            style: context.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
             ),
+            textScaleFactor: context.titleScaleFactor,
           ),
-          GapConstant.h16,
+          GapConstant.h24,
           Text(
             item.description,
             style: context.bodyMedium,
             textAlign: TextAlign.justify,
           ),
+          GapConstant.h32,
+          _dateLayout(context),
         ],
       ),
     );
   }
 
-  Widget _dateLayout() {
+  Widget _dateLayout(BuildContext context) {
     var outputFormat = 'MMM yyyy';
 
-    return Expanded(
-      flex: 3,
-      child: Align(
-        alignment: Alignment.centerRight,
-        child: Text(
-          '${item.startDate.formatDate(outputFormat: outputFormat)} - ${item.endDate?.formatDate(outputFormat: outputFormat) ?? 'Present'}',
-        ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Text(
+        '${item.startDate.formatDate(outputFormat: outputFormat)} - ${item.endDate?.formatDate(outputFormat: outputFormat) ?? 'Present'}',
+        style: context.bodyMedium,
       ),
     );
   }
