@@ -24,7 +24,7 @@ class ArticleLayout extends StatelessWidget {
       child: Column(
         children: [
           const ChipWidget(
-            text: 'Featured Post',
+            text: 'CERTIFICATES',
           ),
           GapConstant.h24,
           Text(

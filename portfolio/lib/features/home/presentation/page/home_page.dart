@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
       _ToolbarItem(text: 'Skills', onTap: () => _changeToIndex(3)),
       _ToolbarItem(text: 'Experience', onTap: () => _changeToIndex(4)),
       _ToolbarItem(text: 'Projects', onTap: () => _changeToIndex(5)),
-      _ToolbarItem(text: 'Blog', onTap: () => _changeToIndex(6)),
+      _ToolbarItem(text: 'Certificates', onTap: () => _changeToIndex(6)),
       _ToolbarItem(text: 'Contact', onTap: () => _changeToIndex(7)),
     ];
   }
