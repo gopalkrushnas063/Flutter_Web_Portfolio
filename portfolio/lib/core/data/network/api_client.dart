@@ -15,7 +15,6 @@ class ApiClient {
 
   Dio _createDefaultDio({
     String baseUrl = 'https://gopalkrushnas063.github.io/portfolio_json/',
-    // String baseUrl = "https://api.laam.my.id/",
     List<Interceptor> interceptors = const [],
     Map<String, dynamic>? headers = const {
       'Sec-Fetch-Mode': 'cors',

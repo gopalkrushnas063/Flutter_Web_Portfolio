@@ -118,12 +118,12 @@ class _ExperienceItem extends StatelessWidget {
                   ? radius
                   : radiusZero,
         ),
-        color: context.colorScheme.onInverseSurface,
+        // color: context.colorScheme.onInverseSurface,
       ),
       padding: const EdgeInsets.all(32),
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          maxHeight: !isColumn ? 400 : 340,
+          maxHeight: !isColumn ? 100 : 340,
           minWidth: context.screenWidth,
         ),
         child: ImageLoader(
@@ -136,7 +136,7 @@ class _ExperienceItem extends StatelessWidget {
 
   Widget _textAndDateLayout(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(48),
+      padding: const EdgeInsets.all(12),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -165,12 +165,9 @@ class _ExperienceItem extends StatelessWidget {
   Widget _dateLayout(BuildContext context) {
     var outputFormat = 'MMM yyyy';
 
-    return Padding(
-      padding: const EdgeInsets.only(top: 24),
-      child: Text(
-        '${item.startDate.formatDate(outputFormat: outputFormat)} - ${item.endDate?.formatDate(outputFormat: outputFormat) ?? 'Present'}',
-        style: context.bodyMedium,
-      ),
+    return Text(
+      '${item.startDate.formatDate(outputFormat: outputFormat)} - ${item.endDate?.formatDate(outputFormat: outputFormat) ?? 'Present'}',
+      style: context.bodyMedium,
     );
   }
 }
